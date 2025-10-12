@@ -34,7 +34,6 @@ def create_short_url(request):
                 'short_url': request.build_absolute_uri(f'/{existing_url.short_code}'),
                 'original_url': existing_url.original_url,
                 'created_at': existing_url.created_at.isoformat(),
-                'clicks': existing_url.clicks,
                 'message': 'URL already exists'
             }, status=200)
         
@@ -46,8 +45,7 @@ def create_short_url(request):
             'short_code': url_obj.short_code,
             'short_url': request.build_absolute_uri(f'/{url_obj.short_code}'),
             'original_url': url_obj.original_url,
-            'created_at': url_obj.created_at.isoformat(),
-            'clicks': url_obj.clicks
+            'created_at': url_obj.created_at.isoformat()
         }, status=201)
         
     except json.JSONDecodeError:
