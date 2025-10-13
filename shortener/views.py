@@ -73,4 +73,10 @@ def redirect_to_original(request, short_code):
     url_obj.increment_clicks()
     
     # Redirect to the original URL
-    return redirect(url_obj.original_url)
+    # Ensure the URL has a protocol (http:// or https://)
+    original_url = url_obj.original_url
+    if not original_url.startswith(('http://', 'https://')):
+        original_url = 'https://' + original_url
+    
+    # Redirect to the original URL
+    return redirect(original_url)
