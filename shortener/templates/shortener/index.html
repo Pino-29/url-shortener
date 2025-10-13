@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>URL Shortener</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'shortener/css/styles.css' %}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>URL Shortener</h1>
+            <p class="subtitle">Quickly shorten your long URLs</p>
+        </header>
+
+        <main>
+            <form id="url-form" class="url-form">
+                <div class="form-group">
+                    <label for="url-input">Enter your long URL:</label>
+                    <input 
+                        type="url" 
+                        id="url-input" 
+                        name="url" 
+                        placeholder="https://example.com/very/long/url"
+                        required
+                    >
+                </div>
+                <button type="submit">Shorten URL</button>
+            </form>
+
+            <div id="result-container" class="result-container">
+                <p class="result-title">Your shortened URL:</p>
+                <div class="short-url">
+                    <input type="text" id="short-url" readonly>
+                    <button id="copy-btn" class="copy-btn">Copy</button>
+                </div>
+            </div>
+
+            <div id="message" class="message"></div>
+        </main>
+
+        <footer>
+            <p>&copy; 2025 URL Shortener. All rights reserved.</p>
+        </footer>
+    </div>
+
+    <script src="{% static 'shortener/js/script.js' %}"></script>
+</body>
+</html>

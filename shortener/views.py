@@ -6,6 +6,17 @@ import json
 from .models import URL
 
 
+def home(request):
+    """
+    Render the home page with URL shortener form.
+
+    GET /
+
+    Returns the HTML template for the URL shortener interface.
+    """
+    return render(request, 'shortener/index.html')
+
+
 @csrf_exempt
 @require_http_methods(["POST"])
 def create_short_url(request):
